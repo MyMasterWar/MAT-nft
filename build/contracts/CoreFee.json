@@ -1,0 +1,4298 @@
+{
+  "contractName": "CoreFee",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IBEP20",
+          "name": "_feeContract",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "bornFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "breedFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "destroyFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "evolveFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feeContract",
+      "outputs": [
+        {
+          "internalType": "contract IBEP20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_bornFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBornFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_evolveFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setEvolveFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_breedFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBreedFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_destroyFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDestroyFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nftId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gene",
+          "type": "uint256"
+        }
+      ],
+      "name": "chargeBornFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nftId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_newGene",
+          "type": "uint256"
+        }
+      ],
+      "name": "chargeEvolveFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nftId1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nftId2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_newGene",
+          "type": "uint256"
+        }
+      ],
+      "name": "chargeBreedFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_toAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nftId",
+          "type": "uint256"
+        }
+      ],
+      "name": "chargeDestroyFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.6+commit.11564f7e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IBEP20\",\"name\":\"_feeContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"bornFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"breedFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nftId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_gene\",\"type\":\"uint256\"}],\"name\":\"chargeBornFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nftId1\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_nftId2\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_newGene\",\"type\":\"uint256\"}],\"name\":\"chargeBreedFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nftId\",\"type\":\"uint256\"}],\"name\":\"chargeDestroyFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_toAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nftId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_newGene\",\"type\":\"uint256\"}],\"name\":\"chargeEvolveFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"destroyFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"evolveFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feeContract\",\"outputs\":[{\"internalType\":\"contract IBEP20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_bornFee\",\"type\":\"uint256\"}],\"name\":\"setBornFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_breedFee\",\"type\":\"uint256\"}],\"name\":\"setBreedFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_destroyFee\",\"type\":\"uint256\"}],\"name\":\"setDestroyFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_evolveFee\",\"type\":\"uint256\"}],\"name\":\"setEvolveFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/CoreFee.sol\":\"CoreFee\"},\"evmVersion\":\"berlin\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/CoreFee.sol\":{\"keccak256\":\"0x18857bd3be5f0b89b437d796a6d2c53b6bc88b0d5e3c362479c15c2b7b2d40fb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://54e4e37516e6b183226ae210f7b952ab71190e9a853d7c63ae97e4813f8a101c\",\"dweb:/ipfs/QmVfUhsC3Qbb56cyAK9Xgxy3vHW8apP54NbWFxeAEXoMBD\"]},\"/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/ERC/ERC20/IBEP20.sol\":{\"keccak256\":\"0xb7a195695232bc9c9a158c9f5888df6442ed9ff709e1759e454cdc4e56e20b9f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c3de530066222e81293c2d7609399ca0e0392c6bc25bbc4121fbf2db2bf1970f\",\"dweb:/ipfs/QmY65yW8KhVQqABT2ZVXM3sghDVukfTcq6KvjALjKmqetr\"]},\"/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/access/Ownable.sol\":{\"keccak256\":\"0xe6b72c96d1bad67df55e7b7090b2caa3d2ab96231081ffc9769c14d2b244c19d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://30b655e5c4d0839ed166778c8c4ef5dc8adf71737639e734dcdebd710702b4bd\",\"dweb:/ipfs/QmcwA21oLvG3qmWUgTwYVAZVS6tGFdRVYjRP5oogRMGvLd\"]},\"/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/util/Context.sol\":{\"keccak256\":\"0x3e13fc346aabe99ca12f0c076dbb15b3b3bfc15c0c1499ed055eb59309cfa19e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://61d2c065cedd38a21933a29b6e10306cc47abe586665821ee7a73beae016aa39\",\"dweb:/ipfs/QmTwfJTwuoxG98fQKi3oEs7q1WwCQ4qNTZCfHufN3zWt3m\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161090838038061090883398101604081905261002f91610095565b600080546001600160a01b031916339081178255604051909182917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350600180546001600160a01b0319166001600160a01b03929092169190911790556100c5565b6000602082840312156100a757600080fd5b81516001600160a01b03811681146100be57600080fd5b9392505050565b610834806100d46000396000f3fe608060405234801561001057600080fd5b50600436106101005760003560e01c8063771139ff11610097578063934fedf111610066578063934fedf1146101f5578063c0c7a7df14610208578063c4a522c814610211578063f2fde38b1461021a57600080fd5b8063771139ff146101ab5780637b182965146101be5780638da5cb5b146101d15780639096ebd8146101e257600080fd5b80631817d87e116100d35780631817d87e146101705780632a7d6d56146101875780636cf2fbe31461019a578063715018a6146101a357600080fd5b806306e29712146101055780630e45f2b114610135578063127185361461014a57806313fe8cc31461015d575b600080fd5b600154610118906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b610148610143366004610731565b61022d565b005b61014861015836600461078c565b6102d8565b61014861016b36600461078c565b610310565b61017960045481565b60405190815260200161012c565b6101486101953660046106d4565b61033f565b61017960035481565b6101486103e6565b6101486101b93660046106fe565b61045a565b6101486101cc3660046106fe565b6104fd565b6000546001600160a01b0316610118565b6101486101f036600461078c565b61054e565b61014861020336600461078c565b61057d565b61017960025481565b61017960055481565b6101486102283660046106b2565b6105ac565b600454610239576102d2565b6001546001600160a01b03166323b872dd8561025d6000546001600160a01b031690565b6004546040518463ffffffff1660e01b815260040161027e939291906107a5565b602060405180830381600087803b15801561029857600080fd5b505af11580156102ac573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102d0919061076a565b505b50505050565b6000546001600160a01b0316331461030b5760405162461bcd60e51b8152600401610302906107c9565b60405180910390fd5b600555565b6000546001600160a01b0316331461033a5760405162461bcd60e51b8152600401610302906107c9565b600255565b60055461034a575050565b6001546001600160a01b03166323b872dd8361036e6000546001600160a01b031690565b6005546040518463ffffffff1660e01b815260040161038f939291906107a5565b602060405180830381600087803b1580156103a957600080fd5b505af11580156103bd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103e1919061076a565b505050565b6000546001600160a01b031633146104105760405162461bcd60e51b8152600401610302906107c9565b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b60035461046657505050565b6001546001600160a01b03166323b872dd8461048a6000546001600160a01b031690565b6003546040518463ffffffff1660e01b81526004016104ab939291906107a5565b602060405180830381600087803b1580156104c557600080fd5b505af11580156104d9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102d2919061076a565b60025461050957505050565b6001546001600160a01b03166323b872dd8461052d6000546001600160a01b031690565b6002546040518463ffffffff1660e01b81526004016104ab939291906107a5565b6000546001600160a01b031633146105785760405162461bcd60e51b8152600401610302906107c9565b600355565b6000546001600160a01b031633146105a75760405162461bcd60e51b8152600401610302906107c9565b600455565b6000546001600160a01b031633146105d65760405162461bcd60e51b8152600401610302906107c9565b6001600160a01b03811661063b5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b6064820152608401610302565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b80356001600160a01b03811681146106ad57600080fd5b919050565b6000602082840312156106c457600080fd5b6106cd82610696565b9392505050565b600080604083850312156106e757600080fd5b6106f083610696565b946020939093013593505050565b60008060006060848603121561071357600080fd5b61071c84610696565b95602085013595506040909401359392505050565b6000806000806080858703121561074757600080fd5b61075085610696565b966020860135965060408601359560600135945092505050565b60006020828403121561077c57600080fd5b815180151581146106cd57600080fd5b60006020828403121561079e57600080fd5b5035919050565b6001600160a01b039384168152919092166020820152604081019190915260600190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657260408201526060019056fea2646970667358221220497859b39fd23e3570ef66e8fab758465a6b838abdf19c862fc75f5818ab387864736f6c63430008060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101005760003560e01c8063771139ff11610097578063934fedf111610066578063934fedf1146101f5578063c0c7a7df14610208578063c4a522c814610211578063f2fde38b1461021a57600080fd5b8063771139ff146101ab5780637b182965146101be5780638da5cb5b146101d15780639096ebd8146101e257600080fd5b80631817d87e116100d35780631817d87e146101705780632a7d6d56146101875780636cf2fbe31461019a578063715018a6146101a357600080fd5b806306e29712146101055780630e45f2b114610135578063127185361461014a57806313fe8cc31461015d575b600080fd5b600154610118906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b610148610143366004610731565b61022d565b005b61014861015836600461078c565b6102d8565b61014861016b36600461078c565b610310565b61017960045481565b60405190815260200161012c565b6101486101953660046106d4565b61033f565b61017960035481565b6101486103e6565b6101486101b93660046106fe565b61045a565b6101486101cc3660046106fe565b6104fd565b6000546001600160a01b0316610118565b6101486101f036600461078c565b61054e565b61014861020336600461078c565b61057d565b61017960025481565b61017960055481565b6101486102283660046106b2565b6105ac565b600454610239576102d2565b6001546001600160a01b03166323b872dd8561025d6000546001600160a01b031690565b6004546040518463ffffffff1660e01b815260040161027e939291906107a5565b602060405180830381600087803b15801561029857600080fd5b505af11580156102ac573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102d0919061076a565b505b50505050565b6000546001600160a01b0316331461030b5760405162461bcd60e51b8152600401610302906107c9565b60405180910390fd5b600555565b6000546001600160a01b0316331461033a5760405162461bcd60e51b8152600401610302906107c9565b600255565b60055461034a575050565b6001546001600160a01b03166323b872dd8361036e6000546001600160a01b031690565b6005546040518463ffffffff1660e01b815260040161038f939291906107a5565b602060405180830381600087803b1580156103a957600080fd5b505af11580156103bd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103e1919061076a565b505050565b6000546001600160a01b031633146104105760405162461bcd60e51b8152600401610302906107c9565b600080546040516001600160a01b03909116907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908390a3600080546001600160a01b0319169055565b60035461046657505050565b6001546001600160a01b03166323b872dd8461048a6000546001600160a01b031690565b6003546040518463ffffffff1660e01b81526004016104ab939291906107a5565b602060405180830381600087803b1580156104c557600080fd5b505af11580156104d9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102d2919061076a565b60025461050957505050565b6001546001600160a01b03166323b872dd8461052d6000546001600160a01b031690565b6002546040518463ffffffff1660e01b81526004016104ab939291906107a5565b6000546001600160a01b031633146105785760405162461bcd60e51b8152600401610302906107c9565b600355565b6000546001600160a01b031633146105a75760405162461bcd60e51b8152600401610302906107c9565b600455565b6000546001600160a01b031633146105d65760405162461bcd60e51b8152600401610302906107c9565b6001600160a01b03811661063b5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b6064820152608401610302565b600080546040516001600160a01b03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a3600080546001600160a01b0319166001600160a01b0392909216919091179055565b80356001600160a01b03811681146106ad57600080fd5b919050565b6000602082840312156106c457600080fd5b6106cd82610696565b9392505050565b600080604083850312156106e757600080fd5b6106f083610696565b946020939093013593505050565b60008060006060848603121561071357600080fd5b61071c84610696565b95602085013595506040909401359392505050565b6000806000806080858703121561074757600080fd5b61075085610696565b966020860135965060408601359560600135945092505050565b60006020828403121561077c57600080fd5b815180151581146106cd57600080fd5b60006020828403121561079e57600080fd5b5035919050565b6001600160a01b039384168152919092166020820152604081019190915260600190565b6020808252818101527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e657260408201526060019056fea2646970667358221220497859b39fd23e3570ef66e8fab758465a6b838abdf19c862fc75f5818ab387864736f6c63430008060033",
+  "immutableReferences": {},
+  "sourceMap": "121:1843:0:-:0;;;305:76;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;391:17:16;433:18;;-1:-1:-1;;;;;;433:18:16;168:10:22;433:18:16;;;;;466:43;;168:10:22;;;;466:43:16;;391:17;;466:43;-1:-1:-1;348:11:0;:26;;-1:-1:-1;;;;;;348:26:0;-1:-1:-1;;;;;348:26:0;;;;;;;;;;121:1843;;14:304:27;98:6;151:2;139:9;130:7;126:23;122:32;119:2;;;167:1;164;157:12;119:2;193:16;;-1:-1:-1;;;;;238:31:27;;228:42;;218:2;;284:1;281;274:12;218:2;307:5;109:209;-1:-1:-1;;;109:209:27:o;:::-;121:1843:0;;;;;;",
+  "deployedSourceMap": "121:1843:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;155:25;;;;;-1:-1:-1;;;;;155:25:0;;;;;;-1:-1:-1;;;;;1996:32:27;;;1978:51;;1966:2;1951:18;155:25:0;;;;;;;;1388:318;;;;;;:::i;:::-;;:::i;:::-;;687:102;;;;;;:::i;:::-;;:::i;387:90::-;;;;;;:::i;:::-;;:::i;244:23::-;;;;;;;;;3556:25:27;;;3544:2;3529:18;244:23:0;3511:76:27;1712:250:0;;;;;;:::i;:::-;;:::i;214:24::-;;;;;;1224:145:16;;;:::i;1087:295:0:-;;;;;;:::i;:::-;;:::i;795:286::-;;;;;;:::i;:::-;;:::i;592:85:16:-;638:7;664:6;-1:-1:-1;;;;;664:6:16;592:85;;483:98:0;;;;;;:::i;:::-;;:::i;587:94::-;;;;;;:::i;:::-;;:::i;186:22::-;;;;;;273:25;;;;;;1518:274:16;;;;;;:::i;:::-;;:::i;1388:318:0:-;1545:8;;1541:26;;1560:7;;1541:26;1644:11;;-1:-1:-1;;;;;1644:11:0;:24;1669:10;1681:7;638::16;664:6;-1:-1:-1;;;;;664:6:16;;592:85;1681:7:0;1690:8;;1644:55;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1388:318;;;;;:::o;687:102::-;638:7:16;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;;;;;;;;;758:10:0::1;:24:::0;687:102::o;387:90::-;638:7:16;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;452:7:0::1;:18:::0;387:90::o;1712:250::-;1797:10;;1793:28;;1712:250;;:::o;1793:28::-;1898:11;;-1:-1:-1;;;;;1898:11:0;:24;1923:10;1935:7;638::16;664:6;-1:-1:-1;;;;;664:6:16;;592:85;1935:7:0;1944:10;;1898:57;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1712:250;;:::o;1224:145:16:-;638:7;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;1330:1:::1;1314:6:::0;;1293:40:::1;::::0;-1:-1:-1;;;;;1314:6:16;;::::1;::::0;1293:40:::1;::::0;1330:1;;1293:40:::1;1360:1;1343:19:::0;;-1:-1:-1;;;;;;1343:19:16::1;::::0;;1224:145::o;1087:295:0:-;1219:9;;1215:27;;1087:295;;;:::o;1215:27::-;1319:11;;-1:-1:-1;;;;;1319:11:0;:24;1344:10;1356:7;638::16;664:6;-1:-1:-1;;;;;664:6:16;;592:85;1356:7:0;1365:9;;1319:56;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;795:286::-;922:7;;918:25;;795:286;;;:::o;918:25::-;1020:11;;-1:-1:-1;;;;;1020:11:0;:24;1045:10;1057:7;638::16;664:6;-1:-1:-1;;;;;664:6:16;;592:85;1057:7:0;1066;;1020:54;;;;;;;;;;;;;;;;;:::i;483:98::-;638:7:16;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;552:9:0::1;:22:::0;483:98::o;587:94::-;638:7:16;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;654:8:0::1;:20:::0;587:94::o;1518:274:16:-;638:7;664:6;-1:-1:-1;;;;;664:6:16;168:10:22;804:23:16;796:68;;;;-1:-1:-1;;;796:68:16;;;;;;;:::i;:::-;-1:-1:-1;;;;;1619:22:16;::::1;1598:107;;;::::0;-1:-1:-1;;;1598:107:16;;2844:2:27;1598:107:16::1;::::0;::::1;2826:21:27::0;2883:2;2863:18;;;2856:30;2922:34;2902:18;;;2895:62;-1:-1:-1;;;2973:18:27;;;2966:36;3019:19;;1598:107:16::1;2816:228:27::0;1598:107:16::1;1741:6;::::0;;1720:38:::1;::::0;-1:-1:-1;;;;;1720:38:16;;::::1;::::0;1741:6;::::1;::::0;1720:38:::1;::::0;::::1;1768:6;:17:::0;;-1:-1:-1;;;;;;1768:17:16::1;-1:-1:-1::0;;;;;1768:17:16;;;::::1;::::0;;;::::1;::::0;;1518:274::o;14:173:27:-;82:20;;-1:-1:-1;;;;;131:31:27;;121:42;;111:2;;177:1;174;167:12;111:2;63:124;;;:::o;192:186::-;251:6;304:2;292:9;283:7;279:23;275:32;272:2;;;320:1;317;310:12;272:2;343:29;362:9;343:29;:::i;:::-;333:39;262:116;-1:-1:-1;;;262:116:27:o;383:254::-;451:6;459;512:2;500:9;491:7;487:23;483:32;480:2;;;528:1;525;518:12;480:2;551:29;570:9;551:29;:::i;:::-;541:39;627:2;612:18;;;;599:32;;-1:-1:-1;;;470:167:27:o;642:322::-;719:6;727;735;788:2;776:9;767:7;763:23;759:32;756:2;;;804:1;801;794:12;756:2;827:29;846:9;827:29;:::i;:::-;817:39;903:2;888:18;;875:32;;-1:-1:-1;954:2:27;939:18;;;926:32;;746:218;-1:-1:-1;;;746:218:27:o;969:391::-;1055:6;1063;1071;1079;1132:3;1120:9;1111:7;1107:23;1103:33;1100:2;;;1149:1;1146;1139:12;1100:2;1172:29;1191:9;1172:29;:::i;:::-;1162:39;1248:2;1233:18;;1220:32;;-1:-1:-1;1299:2:27;1284:18;;1271:32;;1350:2;1335:18;1322:32;;-1:-1:-1;1090:270:27;-1:-1:-1;;;1090:270:27:o;1365:277::-;1432:6;1485:2;1473:9;1464:7;1460:23;1456:32;1453:2;;;1501:1;1498;1491:12;1453:2;1533:9;1527:16;1586:5;1579:13;1572:21;1565:5;1562:32;1552:2;;1608:1;1605;1598:12;1647:180;1706:6;1759:2;1747:9;1738:7;1734:23;1730:32;1727:2;;;1775:1;1772;1765:12;1727:2;-1:-1:-1;1798:23:27;;1717:110;-1:-1:-1;1717:110:27:o;2040:375::-;-1:-1:-1;;;;;2298:15:27;;;2280:34;;2350:15;;;;2345:2;2330:18;;2323:43;2397:2;2382:18;;2375:34;;;;2230:2;2215:18;;2197:218::o;3049:356::-;3251:2;3233:21;;;3270:18;;;3263:30;3329:34;3324:2;3309:18;;3302:62;3396:2;3381:18;;3223:182::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.6;\n\nimport \"./access/Ownable.sol\";\nimport \"./ERC/ERC20/IBEP20.sol\";\n\ncontract CoreFee is Ownable {\n    IBEP20 public feeContract;\n    uint256 public bornFee;\n    uint256 public evolveFee;\n    uint256 public breedFee;\n    uint256 public destroyFee;\n\n    constructor(IBEP20 _feeContract) {\n        feeContract = _feeContract;\n    }\n\n    function setBornFee(uint256 _bornFee) public onlyOwner {\n        bornFee = _bornFee;\n    }\n\n    function setEvolveFee(uint256 _evolveFee) public onlyOwner {\n        evolveFee = _evolveFee;\n    }\n\n    function setBreedFee(uint256 _breedFee) public onlyOwner {\n        breedFee = _breedFee;\n    }\n\n    function setDestroyFee(uint256 _destroyFee) public onlyOwner {\n        destroyFee = _destroyFee;\n    }\n\n    function chargeBornFee(\n        address _toAddress,\n        uint256 _nftId,\n        uint256 _gene\n    ) external {\n        if (bornFee == 0) return;\n        //TODO: base on nftid and gene can have another calculation\n        feeContract.transferFrom(_toAddress, owner(), bornFee);\n    }\n\n    function chargeEvolveFee(\n        address _toAddress,\n        uint256 _nftId,\n        uint256 _newGene\n    ) external {\n        if (evolveFee == 0) return;\n        //TODO: base on nftid and gene can have another calculation\n        feeContract.transferFrom(_toAddress, owner(), evolveFee);\n    }\n\n    function chargeBreedFee(\n        address _toAddress,\n        uint256 _nftId1,\n        uint256 _nftId2,\n        uint256 _newGene\n    ) external {\n        if (breedFee == 0) return;\n        //TODO: base on nftid and gene can have another calculation\n        feeContract.transferFrom(_toAddress, owner(), breedFee);\n    }\n\n    function chargeDestroyFee(address _toAddress, uint256 _nftId) external {\n        if (destroyFee == 0) return;\n        //TODO: base on nftid and gene can have another calculation\n        feeContract.transferFrom(_toAddress, owner(), destroyFee);\n    }\n}\n",
+  "sourcePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/CoreFee.sol",
+  "ast": {
+    "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/CoreFee.sol",
+    "exportedSymbols": {
+      "Context": [
+        3955
+      ],
+      "CoreFee": [
+        172
+      ],
+      "IBEP20": [
+        273
+      ],
+      "Ownable": [
+        3423
+      ]
+    },
+    "id": 173,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:22:0"
+      },
+      {
+        "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/access/Ownable.sol",
+        "file": "./access/Ownable.sol",
+        "id": 2,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 173,
+        "sourceUnit": 3424,
+        "src": "56:30:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/ERC/ERC20/IBEP20.sol",
+        "file": "./ERC/ERC20/IBEP20.sol",
+        "id": 3,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 173,
+        "sourceUnit": 274,
+        "src": "87:32:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 4,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3423,
+              "src": "141:7:0"
+            },
+            "id": 5,
+            "nodeType": "InheritanceSpecifier",
+            "src": "141:7:0"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 172,
+        "linearizedBaseContracts": [
+          172,
+          3423,
+          3955
+        ],
+        "name": "CoreFee",
+        "nameLocation": "130:7:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "06e29712",
+            "id": 8,
+            "mutability": "mutable",
+            "name": "feeContract",
+            "nameLocation": "169:11:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "155:25:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IBEP20_$273",
+              "typeString": "contract IBEP20"
+            },
+            "typeName": {
+              "id": 7,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 6,
+                "name": "IBEP20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 273,
+                "src": "155:6:0"
+              },
+              "referencedDeclaration": 273,
+              "src": "155:6:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IBEP20_$273",
+                "typeString": "contract IBEP20"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "c0c7a7df",
+            "id": 10,
+            "mutability": "mutable",
+            "name": "bornFee",
+            "nameLocation": "201:7:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "186:22:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "6cf2fbe3",
+            "id": 12,
+            "mutability": "mutable",
+            "name": "evolveFee",
+            "nameLocation": "229:9:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "214:24:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 11,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "214:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "1817d87e",
+            "id": 14,
+            "mutability": "mutable",
+            "name": "breedFee",
+            "nameLocation": "259:8:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "244:23:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 13,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "244:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "c4a522c8",
+            "id": 16,
+            "mutability": "mutable",
+            "name": "destroyFee",
+            "nameLocation": "288:10:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "273:25:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 15,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "273:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "338:43:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 24,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 22,
+                      "name": "feeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8,
+                      "src": "348:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IBEP20_$273",
+                        "typeString": "contract IBEP20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 23,
+                      "name": "_feeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 19,
+                      "src": "362:12:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IBEP20_$273",
+                        "typeString": "contract IBEP20"
+                      }
+                    },
+                    "src": "348:26:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBEP20_$273",
+                      "typeString": "contract IBEP20"
+                    }
+                  },
+                  "id": 25,
+                  "nodeType": "ExpressionStatement",
+                  "src": "348:26:0"
+                }
+              ]
+            },
+            "id": 27,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19,
+                  "mutability": "mutable",
+                  "name": "_feeContract",
+                  "nameLocation": "324:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 27,
+                  "src": "317:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IBEP20_$273",
+                    "typeString": "contract IBEP20"
+                  },
+                  "typeName": {
+                    "id": 18,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 17,
+                      "name": "IBEP20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 273,
+                      "src": "317:6:0"
+                    },
+                    "referencedDeclaration": 273,
+                    "src": "317:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBEP20_$273",
+                      "typeString": "contract IBEP20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "316:21:0"
+            },
+            "returnParameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "338:0:0"
+            },
+            "scope": 172,
+            "src": "305:76:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 38,
+              "nodeType": "Block",
+              "src": "442:35:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 36,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 34,
+                      "name": "bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10,
+                      "src": "452:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 35,
+                      "name": "_bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29,
+                      "src": "462:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "452:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 37,
+                  "nodeType": "ExpressionStatement",
+                  "src": "452:18:0"
+                }
+              ]
+            },
+            "functionSelector": "13fe8cc3",
+            "id": 39,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 32,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 31,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "432:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "432:9:0"
+              }
+            ],
+            "name": "setBornFee",
+            "nameLocation": "396:10:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 29,
+                  "mutability": "mutable",
+                  "name": "_bornFee",
+                  "nameLocation": "415:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 39,
+                  "src": "407:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 28,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "406:18:0"
+            },
+            "returnParameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "442:0:0"
+            },
+            "scope": 172,
+            "src": "387:90:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 50,
+              "nodeType": "Block",
+              "src": "542:39:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 48,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 46,
+                      "name": "evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "552:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 47,
+                      "name": "_evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 41,
+                      "src": "564:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "552:22:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 49,
+                  "nodeType": "ExpressionStatement",
+                  "src": "552:22:0"
+                }
+              ]
+            },
+            "functionSelector": "9096ebd8",
+            "id": 51,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 44,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 43,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "532:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "532:9:0"
+              }
+            ],
+            "name": "setEvolveFee",
+            "nameLocation": "492:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 42,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41,
+                  "mutability": "mutable",
+                  "name": "_evolveFee",
+                  "nameLocation": "513:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 51,
+                  "src": "505:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 40,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "505:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "504:20:0"
+            },
+            "returnParameters": {
+              "id": 45,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:0:0"
+            },
+            "scope": 172,
+            "src": "483:98:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 62,
+              "nodeType": "Block",
+              "src": "644:37:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 60,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 58,
+                      "name": "breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "654:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 59,
+                      "name": "_breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 53,
+                      "src": "665:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "654:20:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 61,
+                  "nodeType": "ExpressionStatement",
+                  "src": "654:20:0"
+                }
+              ]
+            },
+            "functionSelector": "934fedf1",
+            "id": 63,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 56,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 55,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "634:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "634:9:0"
+              }
+            ],
+            "name": "setBreedFee",
+            "nameLocation": "596:11:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 54,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "mutability": "mutable",
+                  "name": "_breedFee",
+                  "nameLocation": "616:9:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "608:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "608:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "607:19:0"
+            },
+            "returnParameters": {
+              "id": 57,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "644:0:0"
+            },
+            "scope": 172,
+            "src": "587:94:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 74,
+              "nodeType": "Block",
+              "src": "748:41:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 72,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 70,
+                      "name": "destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "758:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 71,
+                      "name": "_destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 65,
+                      "src": "771:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "758:24:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 73,
+                  "nodeType": "ExpressionStatement",
+                  "src": "758:24:0"
+                }
+              ]
+            },
+            "functionSelector": "12718536",
+            "id": 75,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 68,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 67,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "738:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "738:9:0"
+              }
+            ],
+            "name": "setDestroyFee",
+            "nameLocation": "696:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "mutability": "mutable",
+                  "name": "_destroyFee",
+                  "nameLocation": "718:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "710:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:21:0"
+            },
+            "returnParameters": {
+              "id": 69,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "748:0:0"
+            },
+            "scope": 172,
+            "src": "687:102:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 98,
+              "nodeType": "Block",
+              "src": "908:173:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 86,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 84,
+                      "name": "bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10,
+                      "src": "922:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 85,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "933:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "922:12:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 88,
+                  "nodeType": "IfStatement",
+                  "src": "918:25:0",
+                  "trueBody": {
+                    "functionReturnParameters": 83,
+                    "id": 87,
+                    "nodeType": "Return",
+                    "src": "936:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 92,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "1045:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 93,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1057:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 94,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1057:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 95,
+                        "name": "bornFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10,
+                        "src": "1066:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 89,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1020:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 91,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1020:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1020:54:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1020:54:0"
+                }
+              ]
+            },
+            "functionSelector": "7b182965",
+            "id": 99,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeBornFee",
+            "nameLocation": "804:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "835:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "827:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "827:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "863:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "855:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "855:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "mutability": "mutable",
+                  "name": "_gene",
+                  "nameLocation": "887:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "879:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "879:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "817:81:0"
+            },
+            "returnParameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "908:0:0"
+            },
+            "scope": 172,
+            "src": "795:286:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 122,
+              "nodeType": "Block",
+              "src": "1205:177:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 110,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 108,
+                      "name": "evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "1219:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 109,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1232:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1219:14:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 112,
+                  "nodeType": "IfStatement",
+                  "src": "1215:27:0",
+                  "trueBody": {
+                    "functionReturnParameters": 107,
+                    "id": 111,
+                    "nodeType": "Return",
+                    "src": "1235:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 116,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 101,
+                        "src": "1344:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 117,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1356:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 118,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1356:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 119,
+                        "name": "evolveFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "1365:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 113,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1319:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 115,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1319:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1319:56:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1319:56:0"
+                }
+              ]
+            },
+            "functionSelector": "771139ff",
+            "id": 123,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeEvolveFee",
+            "nameLocation": "1096:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 106,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1129:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1121:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 100,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1121:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 103,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "1157:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1149:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1149:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 105,
+                  "mutability": "mutable",
+                  "name": "_newGene",
+                  "nameLocation": "1181:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1173:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 104,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1111:84:0"
+            },
+            "returnParameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1205:0:0"
+            },
+            "scope": 172,
+            "src": "1087:295:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 148,
+              "nodeType": "Block",
+              "src": "1531:175:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 136,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 134,
+                      "name": "breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "1545:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 135,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1557:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1545:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 138,
+                  "nodeType": "IfStatement",
+                  "src": "1541:26:0",
+                  "trueBody": {
+                    "functionReturnParameters": 133,
+                    "id": 137,
+                    "nodeType": "Return",
+                    "src": "1560:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 142,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 125,
+                        "src": "1669:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 143,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1681:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 144,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1681:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 145,
+                        "name": "breedFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "1690:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 139,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1644:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 141,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1644:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 146,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1644:55:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 147,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1644:55:0"
+                }
+              ]
+            },
+            "functionSelector": "0e45f2b1",
+            "id": 149,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeBreedFee",
+            "nameLocation": "1397:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 132,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 125,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1429:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1421:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 124,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1421:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 127,
+                  "mutability": "mutable",
+                  "name": "_nftId1",
+                  "nameLocation": "1457:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1449:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 126,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1449:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "_nftId2",
+                  "nameLocation": "1482:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1474:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1474:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 131,
+                  "mutability": "mutable",
+                  "name": "_newGene",
+                  "nameLocation": "1507:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1499:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 130,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1499:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1411:110:0"
+            },
+            "returnParameters": {
+              "id": 133,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1531:0:0"
+            },
+            "scope": 172,
+            "src": "1388:318:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 170,
+              "nodeType": "Block",
+              "src": "1783:179:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 156,
+                      "name": "destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "1797:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 157,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1811:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1797:15:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 160,
+                  "nodeType": "IfStatement",
+                  "src": "1793:28:0",
+                  "trueBody": {
+                    "functionReturnParameters": 155,
+                    "id": 159,
+                    "nodeType": "Return",
+                    "src": "1814:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 164,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 151,
+                        "src": "1923:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 165,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1935:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 166,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1935:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 167,
+                        "name": "destroyFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16,
+                        "src": "1944:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 161,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1898:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 163,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1898:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 168,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1898:57:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 169,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1898:57:0"
+                }
+              ]
+            },
+            "functionSelector": "2a7d6d56",
+            "id": 171,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeDestroyFee",
+            "nameLocation": "1721:16:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 154,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 151,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1746:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 171,
+                  "src": "1738:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 150,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1738:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 153,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "1766:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 171,
+                  "src": "1758:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 152,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1758:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1737:36:0"
+            },
+            "returnParameters": {
+              "id": 155,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1783:0:0"
+            },
+            "scope": 172,
+            "src": "1712:250:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 173,
+        "src": "121:1843:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1933:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/CoreFee.sol",
+    "exportedSymbols": {
+      "Context": [
+        3955
+      ],
+      "CoreFee": [
+        172
+      ],
+      "IBEP20": [
+        273
+      ],
+      "Ownable": [
+        3423
+      ]
+    },
+    "id": 173,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".6"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:22:0"
+      },
+      {
+        "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/access/Ownable.sol",
+        "file": "./access/Ownable.sol",
+        "id": 2,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 173,
+        "sourceUnit": 3424,
+        "src": "56:30:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/tabatrung/Documents/Work/NFTGameTamQuoc/projects/public/MAT-nft/contracts/ERC/ERC20/IBEP20.sol",
+        "file": "./ERC/ERC20/IBEP20.sol",
+        "id": 3,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 173,
+        "sourceUnit": 274,
+        "src": "87:32:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 4,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3423,
+              "src": "141:7:0"
+            },
+            "id": 5,
+            "nodeType": "InheritanceSpecifier",
+            "src": "141:7:0"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 172,
+        "linearizedBaseContracts": [
+          172,
+          3423,
+          3955
+        ],
+        "name": "CoreFee",
+        "nameLocation": "130:7:0",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "06e29712",
+            "id": 8,
+            "mutability": "mutable",
+            "name": "feeContract",
+            "nameLocation": "169:11:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "155:25:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IBEP20_$273",
+              "typeString": "contract IBEP20"
+            },
+            "typeName": {
+              "id": 7,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 6,
+                "name": "IBEP20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 273,
+                "src": "155:6:0"
+              },
+              "referencedDeclaration": 273,
+              "src": "155:6:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IBEP20_$273",
+                "typeString": "contract IBEP20"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "c0c7a7df",
+            "id": 10,
+            "mutability": "mutable",
+            "name": "bornFee",
+            "nameLocation": "201:7:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "186:22:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 9,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "186:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "6cf2fbe3",
+            "id": 12,
+            "mutability": "mutable",
+            "name": "evolveFee",
+            "nameLocation": "229:9:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "214:24:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 11,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "214:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "1817d87e",
+            "id": 14,
+            "mutability": "mutable",
+            "name": "breedFee",
+            "nameLocation": "259:8:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "244:23:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 13,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "244:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "c4a522c8",
+            "id": 16,
+            "mutability": "mutable",
+            "name": "destroyFee",
+            "nameLocation": "288:10:0",
+            "nodeType": "VariableDeclaration",
+            "scope": 172,
+            "src": "273:25:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 15,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "273:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 26,
+              "nodeType": "Block",
+              "src": "338:43:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 24,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 22,
+                      "name": "feeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8,
+                      "src": "348:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IBEP20_$273",
+                        "typeString": "contract IBEP20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 23,
+                      "name": "_feeContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 19,
+                      "src": "362:12:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IBEP20_$273",
+                        "typeString": "contract IBEP20"
+                      }
+                    },
+                    "src": "348:26:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBEP20_$273",
+                      "typeString": "contract IBEP20"
+                    }
+                  },
+                  "id": 25,
+                  "nodeType": "ExpressionStatement",
+                  "src": "348:26:0"
+                }
+              ]
+            },
+            "id": 27,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 20,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 19,
+                  "mutability": "mutable",
+                  "name": "_feeContract",
+                  "nameLocation": "324:12:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 27,
+                  "src": "317:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IBEP20_$273",
+                    "typeString": "contract IBEP20"
+                  },
+                  "typeName": {
+                    "id": 18,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 17,
+                      "name": "IBEP20",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 273,
+                      "src": "317:6:0"
+                    },
+                    "referencedDeclaration": 273,
+                    "src": "317:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IBEP20_$273",
+                      "typeString": "contract IBEP20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "316:21:0"
+            },
+            "returnParameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "338:0:0"
+            },
+            "scope": 172,
+            "src": "305:76:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 38,
+              "nodeType": "Block",
+              "src": "442:35:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 36,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 34,
+                      "name": "bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10,
+                      "src": "452:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 35,
+                      "name": "_bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29,
+                      "src": "462:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "452:18:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 37,
+                  "nodeType": "ExpressionStatement",
+                  "src": "452:18:0"
+                }
+              ]
+            },
+            "functionSelector": "13fe8cc3",
+            "id": 39,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 32,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 31,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "432:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "432:9:0"
+              }
+            ],
+            "name": "setBornFee",
+            "nameLocation": "396:10:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 29,
+                  "mutability": "mutable",
+                  "name": "_bornFee",
+                  "nameLocation": "415:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 39,
+                  "src": "407:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 28,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "406:18:0"
+            },
+            "returnParameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "442:0:0"
+            },
+            "scope": 172,
+            "src": "387:90:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 50,
+              "nodeType": "Block",
+              "src": "542:39:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 48,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 46,
+                      "name": "evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "552:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 47,
+                      "name": "_evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 41,
+                      "src": "564:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "552:22:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 49,
+                  "nodeType": "ExpressionStatement",
+                  "src": "552:22:0"
+                }
+              ]
+            },
+            "functionSelector": "9096ebd8",
+            "id": 51,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 44,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 43,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "532:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "532:9:0"
+              }
+            ],
+            "name": "setEvolveFee",
+            "nameLocation": "492:12:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 42,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41,
+                  "mutability": "mutable",
+                  "name": "_evolveFee",
+                  "nameLocation": "513:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 51,
+                  "src": "505:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 40,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "505:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "504:20:0"
+            },
+            "returnParameters": {
+              "id": 45,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:0:0"
+            },
+            "scope": 172,
+            "src": "483:98:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 62,
+              "nodeType": "Block",
+              "src": "644:37:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 60,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 58,
+                      "name": "breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "654:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 59,
+                      "name": "_breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 53,
+                      "src": "665:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "654:20:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 61,
+                  "nodeType": "ExpressionStatement",
+                  "src": "654:20:0"
+                }
+              ]
+            },
+            "functionSelector": "934fedf1",
+            "id": 63,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 56,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 55,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "634:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "634:9:0"
+              }
+            ],
+            "name": "setBreedFee",
+            "nameLocation": "596:11:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 54,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "mutability": "mutable",
+                  "name": "_breedFee",
+                  "nameLocation": "616:9:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63,
+                  "src": "608:17:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "608:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "607:19:0"
+            },
+            "returnParameters": {
+              "id": 57,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "644:0:0"
+            },
+            "scope": 172,
+            "src": "587:94:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 74,
+              "nodeType": "Block",
+              "src": "748:41:0",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 72,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 70,
+                      "name": "destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "758:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 71,
+                      "name": "_destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 65,
+                      "src": "771:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "758:24:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 73,
+                  "nodeType": "ExpressionStatement",
+                  "src": "758:24:0"
+                }
+              ]
+            },
+            "functionSelector": "12718536",
+            "id": 75,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 68,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 67,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 3372,
+                  "src": "738:9:0"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "738:9:0"
+              }
+            ],
+            "name": "setDestroyFee",
+            "nameLocation": "696:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "mutability": "mutable",
+                  "name": "_destroyFee",
+                  "nameLocation": "718:11:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 75,
+                  "src": "710:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "710:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "709:21:0"
+            },
+            "returnParameters": {
+              "id": 69,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "748:0:0"
+            },
+            "scope": 172,
+            "src": "687:102:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 98,
+              "nodeType": "Block",
+              "src": "908:173:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 86,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 84,
+                      "name": "bornFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10,
+                      "src": "922:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 85,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "933:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "922:12:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 88,
+                  "nodeType": "IfStatement",
+                  "src": "918:25:0",
+                  "trueBody": {
+                    "functionReturnParameters": 83,
+                    "id": 87,
+                    "nodeType": "Return",
+                    "src": "936:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 92,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 77,
+                        "src": "1045:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 93,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1057:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 94,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1057:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 95,
+                        "name": "bornFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10,
+                        "src": "1066:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 89,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1020:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 91,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1020:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1020:54:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1020:54:0"
+                }
+              ]
+            },
+            "functionSelector": "7b182965",
+            "id": 99,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeBornFee",
+            "nameLocation": "804:13:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "835:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "827:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "827:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "863:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "855:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "855:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "mutability": "mutable",
+                  "name": "_gene",
+                  "nameLocation": "887:5:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 99,
+                  "src": "879:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "879:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "817:81:0"
+            },
+            "returnParameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "908:0:0"
+            },
+            "scope": 172,
+            "src": "795:286:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 122,
+              "nodeType": "Block",
+              "src": "1205:177:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 110,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 108,
+                      "name": "evolveFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12,
+                      "src": "1219:9:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 109,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1232:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1219:14:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 112,
+                  "nodeType": "IfStatement",
+                  "src": "1215:27:0",
+                  "trueBody": {
+                    "functionReturnParameters": 107,
+                    "id": 111,
+                    "nodeType": "Return",
+                    "src": "1235:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 116,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 101,
+                        "src": "1344:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 117,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1356:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 118,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1356:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 119,
+                        "name": "evolveFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "1365:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 113,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1319:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 115,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1319:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1319:56:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1319:56:0"
+                }
+              ]
+            },
+            "functionSelector": "771139ff",
+            "id": 123,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeEvolveFee",
+            "nameLocation": "1096:15:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 106,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1129:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1121:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 100,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1121:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 103,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "1157:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1149:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 102,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1149:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 105,
+                  "mutability": "mutable",
+                  "name": "_newGene",
+                  "nameLocation": "1181:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 123,
+                  "src": "1173:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 104,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1173:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1111:84:0"
+            },
+            "returnParameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1205:0:0"
+            },
+            "scope": 172,
+            "src": "1087:295:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 148,
+              "nodeType": "Block",
+              "src": "1531:175:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 136,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 134,
+                      "name": "breedFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "1545:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 135,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1557:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1545:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 138,
+                  "nodeType": "IfStatement",
+                  "src": "1541:26:0",
+                  "trueBody": {
+                    "functionReturnParameters": 133,
+                    "id": 137,
+                    "nodeType": "Return",
+                    "src": "1560:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 142,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 125,
+                        "src": "1669:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 143,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1681:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 144,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1681:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 145,
+                        "name": "breedFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "1690:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 139,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1644:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 141,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1644:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 146,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1644:55:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 147,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1644:55:0"
+                }
+              ]
+            },
+            "functionSelector": "0e45f2b1",
+            "id": 149,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeBreedFee",
+            "nameLocation": "1397:14:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 132,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 125,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1429:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1421:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 124,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1421:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 127,
+                  "mutability": "mutable",
+                  "name": "_nftId1",
+                  "nameLocation": "1457:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1449:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 126,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1449:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "_nftId2",
+                  "nameLocation": "1482:7:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1474:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1474:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 131,
+                  "mutability": "mutable",
+                  "name": "_newGene",
+                  "nameLocation": "1507:8:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 149,
+                  "src": "1499:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 130,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1499:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1411:110:0"
+            },
+            "returnParameters": {
+              "id": 133,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1531:0:0"
+            },
+            "scope": 172,
+            "src": "1388:318:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 170,
+              "nodeType": "Block",
+              "src": "1783:179:0",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 156,
+                      "name": "destroyFee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "1797:10:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 157,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1811:1:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1797:15:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 160,
+                  "nodeType": "IfStatement",
+                  "src": "1793:28:0",
+                  "trueBody": {
+                    "functionReturnParameters": 155,
+                    "id": 159,
+                    "nodeType": "Return",
+                    "src": "1814:7:0"
+                  }
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 164,
+                        "name": "_toAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 151,
+                        "src": "1923:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "id": 165,
+                          "name": "owner",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3358,
+                          "src": "1935:5:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                            "typeString": "function () view returns (address)"
+                          }
+                        },
+                        "id": 166,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1935:7:0",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 167,
+                        "name": "destroyFee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16,
+                        "src": "1944:10:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 161,
+                        "name": "feeContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8,
+                        "src": "1898:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBEP20_$273",
+                          "typeString": "contract IBEP20"
+                        }
+                      },
+                      "id": 163,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 254,
+                      "src": "1898:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 168,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1898:57:0",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 169,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1898:57:0"
+                }
+              ]
+            },
+            "functionSelector": "2a7d6d56",
+            "id": 171,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "chargeDestroyFee",
+            "nameLocation": "1721:16:0",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 154,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 151,
+                  "mutability": "mutable",
+                  "name": "_toAddress",
+                  "nameLocation": "1746:10:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 171,
+                  "src": "1738:18:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 150,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1738:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 153,
+                  "mutability": "mutable",
+                  "name": "_nftId",
+                  "nameLocation": "1766:6:0",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 171,
+                  "src": "1758:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 152,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1758:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1737:36:0"
+            },
+            "returnParameters": {
+              "id": 155,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1783:0:0"
+            },
+            "scope": 172,
+            "src": "1712:250:0",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 173,
+        "src": "121:1843:0",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1933:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.6+commit.11564f7e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.0",
+  "updatedAt": "2021-09-26T16:08:34.438Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
