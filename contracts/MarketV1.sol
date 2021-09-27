@@ -156,7 +156,6 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         (owner, currency, price) = marketV1Storage.getItem(id);
         validate(id, amount, owner, currency, price);
 
-        address previousOwner = nft.ownerOf(id);
         address newOwner = _msgSender();
 
         uint256 commissionAmount;
@@ -164,7 +163,7 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         (commissionAmount, sellerAmount) = trade(id, currency, amount, owner);
 
         emit Purchase(
-            previousOwner,
+            owner,
             newOwner,
             id,
             currency,
