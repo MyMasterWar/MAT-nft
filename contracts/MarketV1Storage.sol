@@ -17,7 +17,7 @@ contract MarketV1Storage is Ownable {
         _;
     }
 
-    function setWhilelist(address _user, bool _isWhilelist) external {
+    function setWhilelist(address _user, bool _isWhilelist) external onlyOwner {
         whilelists[_user] = _isWhilelist;
     }
 

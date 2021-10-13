@@ -9,8 +9,10 @@ import "./ERC/ERC20/IBEP20.sol";
 import "./access/IMarketAccessManager.sol";
 import "./security/ReentrancyGuard.sol";
 import "./MarketV1Storage.sol";
+import './ERC/ERC20/SafeBEP20.sol';
 
 contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
+    using SafeBEP20 for IBEP20;
     uint256 public commission; //2 decinal
 
     MyMasterWarCore private nft;
@@ -53,6 +55,15 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         MarketV1Storage _marketV1Storage,
         uint256 _commission
     ) {
+        require(address(_nft) != address(0), "Error: NFT address(0)");
+        require(
+            address(_accessManager) != address(0),
+            "Error: AccessManager address(0)"
+        );
+        require(
+            address(_marketV1Storage) != address(0),
+            "Error: MarketV1Storage address(0)"
+        );
         nft = _nft;
         accessManager = _accessManager;
         marketV1Storage = _marketV1Storage;
@@ -63,14 +74,23 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         external
         onlyOwner
     {
+        require(
+            address(_accessManager) != address(0),
+            "Error: AccessManager address(0)"
+        );
         accessManager = _accessManager;
     }
 
     function setMyMasterWarCore(MyMasterWarCore _nft) external onlyOwner {
+        require(address(_nft) != address(0), "Error: NFT address(0)");
         nft = _nft;
     }
 
     function setStorage(MarketV1Storage _marketV1Storage) external onlyOwner {
+        require(
+            address(_marketV1Storage) != address(0),
+            "Error: MarketV1Storage address(0)"
+        );
         marketV1Storage = _marketV1Storage;
     }
 
@@ -147,15 +167,16 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         whenNotPaused
         nonReentrant
     {
-        if (msg.value != 0) {
-            amount = msg.value;
-        }
         address owner;
         address currency;
         uint256 price;
         (owner, currency, price) = marketV1Storage.getItem(id);
+        if (currency == address(0)) {
+            amount = msg.value;
+        }
         validate(id, amount, owner, currency, price);
 
+        address previousOwner = nft.ownerOf(id);
         address newOwner = _msgSender();
 
         uint256 commissionAmount;
@@ -163,7 +184,7 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         (commissionAmount, sellerAmount) = trade(id, currency, amount, owner);
 
         emit Purchase(
-            owner,
+            previousOwner,
             newOwner,
             id,
             currency,
@@ -197,7 +218,7 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
         address currency,
         uint256 amount,
         address nftOwner
-    ) internal returns (uint256, uint256) {
+    ) internal nonReentrant returns (uint256, uint256) {
         address buyer = _msgSender();
 
         nft.transferFrom(address(this), buyer, id);
@@ -208,8 +229,8 @@ contract MarketV1 is Ownable, Pausable, ReentrancyGuard {
             payable(nftOwner).transfer(sellerAmount);
             payable(owner()).transfer(commissionAmount);
         } else {
-            IBEP20(currency).transferFrom(buyer, nftOwner, sellerAmount);
-            IBEP20(currency).transferFrom(buyer, owner(), commissionAmount);
+            IBEP20(currency).safeTransferFrom(buyer, nftOwner, sellerAmount);
+            IBEP20(currency).safeTransferFrom(buyer, owner(), commissionAmount);
 
             //transfer BNB back to user if currency is not address(0)
             if (msg.value != 0) {

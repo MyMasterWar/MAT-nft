@@ -5,8 +5,12 @@ import "./ERC/ERC721/ERC721.sol";
 import "./access/Ownable.sol";
 import "./access/IMATAccessManager.sol";
 import "./CoreFee.sol";
+import "./security/ReentrancyGuard.sol";
+import './ERC/ERC20/SafeBEP20.sol';
 
-contract MyMasterWarCore is ERC721, Ownable {
+contract MyMasterWarCore is ERC721, Ownable, ReentrancyGuard {
+    using SafeBEP20 for IBEP20;
+    
     uint256 public currentId;
     IMATAccessManager MATAccessManager;
     CoreFee coreFee;
@@ -47,6 +51,8 @@ contract MyMasterWarCore is ERC721, Ownable {
     constructor(IMATAccessManager _MATAccessManager, CoreFee _coreFee)
         ERC721("mymasterwar.com", "MAT721")
     {
+        require(address(_MATAccessManager) != address(0), "Error: address(0)");
+        require(address(_coreFee) != address(0), "Error: address(0)");
         MATAccessManager = _MATAccessManager;
         coreFee = _coreFee;
         currentId = 1;
@@ -56,14 +62,16 @@ contract MyMasterWarCore is ERC721, Ownable {
         public
         onlyOwner
     {
+        require(address(_MATAccessManager) != address(0), "Error: address(0)");
         MATAccessManager = _MATAccessManager;
     }
 
-    function setCoreFee(CoreFee _coreFee) public onlyOwner {
-        coreFee = _coreFee;
+    function setCoreFee(CoreFee _coreFee) external onlyOwner {
+        require(address(_coreFee) != address(0), "Error: address(0)");
+        coreFee = _coreFee; // check
     }
 
-    function born(address _toAddress, uint256 _gene) public {
+    function born(address _toAddress, uint256 _gene) public nonReentrant {
         require(
             MATAccessManager.isBornAllowed(_msgSender(), _gene),
             "Not have born permisison"
@@ -83,7 +91,7 @@ contract MyMasterWarCore is ERC721, Ownable {
     }
 
     function borns(address[] calldata _toAddresses, uint256[] calldata _genes)
-        public
+        external
     {
         require(_toAddresses.length == _genes.length, "Invalid input");
 
@@ -94,7 +102,7 @@ contract MyMasterWarCore is ERC721, Ownable {
         // return ids;
     }
 
-    function evolve(uint256 _nftId, uint256 _newGene) external {
+    function evolve(uint256 _nftId, uint256 _newGene) external nonReentrant {
         require(
             MATAccessManager.isEvolveAllowed(_msgSender(), _newGene, _nftId),
             "Not have evolve permisison"
@@ -107,7 +115,7 @@ contract MyMasterWarCore is ERC721, Ownable {
         myMasterWars[_nftId].gene = _newGene;
 
         //charge fee
-        // coreFee.chargeEvolveFee(_msgSender(), _nftId, _newGene);
+        coreFee.chargeEvolveFee(_msgSender(), _nftId, _newGene);
         emit Evolve(_msgSender(), _nftId, oldGene, _newGene, block.timestamp);
     }
 
@@ -116,7 +124,7 @@ contract MyMasterWarCore is ERC721, Ownable {
         uint256 _nftId1,
         uint256 _nftId2,
         uint256 _gene
-    ) external returns (uint256) {
+    ) external nonReentrant returns (uint256) {
         require(
             MATAccessManager.isBreedAllowed(_msgSender(), _nftId1, _nftId2),
             "Not have breed permisison"
@@ -138,7 +146,7 @@ contract MyMasterWarCore is ERC721, Ownable {
         currentId = currentId + 1;
 
         //charge fee
-        // coreFee.chargeBreedFee(_toAddress, _nftId1, _nftId2, _gene);
+        coreFee.chargeBreedFee(_toAddress, _nftId1, _nftId2, _gene);
         emit Breed(
             _msgSender(),
             _toAddress,
@@ -151,7 +159,7 @@ contract MyMasterWarCore is ERC721, Ownable {
         return _nftId;
     }
 
-    function destroy(uint256 _nftId) external {
+    function destroy(uint256 _nftId) external nonReentrant {
         require(
             MATAccessManager.isDestroyAllowed(_msgSender(), _nftId),
             "Not have destroy permisison"
@@ -160,16 +168,16 @@ contract MyMasterWarCore is ERC721, Ownable {
         delete myMasterWars[_nftId];
 
         //charge fee
-        // coreFee.chargeDestroyFee(_msgSender(), _nftId);
+        coreFee.chargeDestroyFee(_msgSender(), _nftId);
         emit Destroy(_msgSender(), _nftId, block.timestamp);
     }
 
-    function exists(uint256 _id) public view returns (bool) {
+    function exists(uint256 _id) external view returns (bool) {
         return _exists(_id);
     }
 
     function get(uint256 _nftId)
-        public
+        external
         view
         returns (
             address,
