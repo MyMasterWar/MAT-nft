@@ -26,7 +26,7 @@ contract CoreFee is Ownable {
     }
 
     function setMyMasterWarCore(address _myMasterWarCore) external onlyOwner {
-        require(myMasterWarCore != address(0), "Error: address(0)");
+        require(_myMasterWarCore != address(0), "Error: address(0)");
         myMasterWarCore = _myMasterWarCore;
     }
 
